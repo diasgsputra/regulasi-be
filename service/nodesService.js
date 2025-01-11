@@ -11,7 +11,7 @@ const getNodesByCategory = async (categoryName) => {
         r.parent_category_id AS parent_category
     FROM nodes n
     LEFT JOIN parent_child_relations r ON n.id = r.child_id
-    WHERE n.category_id = (SELECT id FROM categories WHERE name = ?)
+    WHERE n.category_id = (SELECT id FROM categoriess WHERE name = ?)
   `;
 
   const nodes = await sequelize.query(query, {
